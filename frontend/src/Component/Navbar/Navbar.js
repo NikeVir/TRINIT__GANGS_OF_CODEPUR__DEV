@@ -1,7 +1,8 @@
-import React from 'react'
-
+import React, { useState, useEffect, useContext } from 'react'
 import './Navbar.css'
+import UserContext from '../../ContextProvider';
 const Navbar = () => {
+    const { setSignup,signup} = useContext(UserContext)
     return (
 
                     <nav className="navbar navbar-expand-lg bg-transparent">
@@ -32,7 +33,7 @@ const Navbar = () => {
                                 </ul>
 
                                 <div className="button">                                   
-                                    <button className='sign-up'>Sign Up</button>
+                                    <button className='sign-up' onClick={()=>setSignup(true)}>Sign Up</button>
                                 </div>
                             </div>
                         </div>
