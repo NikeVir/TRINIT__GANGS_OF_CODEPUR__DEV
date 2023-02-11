@@ -22,7 +22,7 @@ mongoose.connect("mongodb+srv://NikeVir:123NikeVir@cluster0.t4yhyls.mongodb.net/
     .then((result)=>console.log("Connected to DB"))
     .catch((err)=>console.log(err));
 
-app.post("Org/register", async(req, res)=>{
+app.post("/register", async(req, res)=>{
     try{
         console.log(req.body)
         const emailExist = await Organization.findOne({email: req.body.email})
@@ -31,18 +31,18 @@ app.post("Org/register", async(req, res)=>{
         const hashedPassword = await bcrypt.hash(req.body.password, salt)
         //create new user
         const newORG = new Organization({
-            Organization_name: req.body.username,
+            Organization_name: req.body.Name,
             email: req.body.email,
             password: hashedPassword,
-            field:field,
-            intro:intro,
-            desc:desc,
-            minDonation:minDonation,
-            Contacts:contacts
+            intro:req.body.intro,
+            desc:req.body.desc,
+            minDonation:req.body.minDonation,
+            Contacts:req.body.contacts
         });
         //save user and return response
         const org = await newORG.save();
-        res.status(200).json(user);
+        console.log(newORG)
+        res.status(200).json(org);
     }
     catch(err){
         res.status(500).json(err)

@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema(
       max: 500,
     },
     minDonation: {
-      type: Number,
+      type: String,
       max: 50,
     },
     Contacts:{
