@@ -33,7 +33,7 @@ const Navbar = () => {
                                 </ul>
 
                                 <div className="button">                                   
-                                    <button className='sign-up' onClick={()=>setSignup(true)}>Sign Up</button>
+                                    <button className='sign-up' onClick={()=>setSignup(true)}>Campaign</button>
                                 </div>
                             </div>
                         </div>

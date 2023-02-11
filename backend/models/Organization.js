@@ -7,13 +7,11 @@ const UserSchema = new mongoose.Schema(
       require: true,
       min: 3,
       max: 20,
-      unique: true,
     },
     email: {
       type: String,
       required: true,
       max: 50,
-      unique: true,
     },
     password: {
       type: String,
@@ -23,13 +21,6 @@ const UserSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
       default: "",
-    },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    },
-    field: {
-      type: Array,
     },
     intro: {
       type: String,
@@ -45,11 +36,10 @@ const UserSchema = new mongoose.Schema(
     },
     Contacts:{
       type:String,
-      max:10,
-      min:10
+
     }
   },
-  { timestamps: true }
+
 );
 
 module.exports = mongoose.model("Organization", UserSchema);
